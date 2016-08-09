@@ -15,5 +15,10 @@
             <groupId>br.com.bluesoft.guardian</groupId>
             <artifactId>guardian-core</artifactId>
         </dependency>
+
+        <dependency>
+            <groupId>com.zaxxer</groupId>
+            <artifactId>HikariCP</artifactId>
+        </dependency>
     </dependencies>
 </project>
