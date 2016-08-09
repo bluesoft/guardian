@@ -14,6 +14,7 @@
         <module>guardian-spring</module>
     </modules>
     <packaging>pom</packaging>
+
     <distributionManagement>
         <repository>
             <id>nexus.releases</id>
@@ -31,7 +32,12 @@
 
     <dependencyManagement>
         <dependencies>
-
+            <dependency>
+                <groupId>br.com.bluesoft.guardian</groupId>
+                <artifactId>guardian-faker</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            
             <dependency>
                 <groupId>org.reflections</groupId>
                 <artifactId>reflections</artifactId>
@@ -52,7 +58,7 @@
                 <version>1.4.1</version>
                 <scope>test</scope>
             </dependency>
-            
+
             <dependency>
                 <groupId>ch.qos.logback</groupId>
                 <artifactId>logback-classic</artifactId>
@@ -64,7 +70,7 @@
                 <artifactId>slf4j-api</artifactId>
                 <version>1.7.21</version>
             </dependency>
-            
+
             <dependency>
                 <groupId>org.yaml</groupId>
                 <artifactId>snakeyaml</artifactId>
@@ -108,24 +114,24 @@
             </dependency>
         </dependencies>
     </dependencyManagement>
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.2</version>
+                <configuration>
+                    <source>1.8</source>
+                    <target>1.8</target>
+                    <encoding>UTF-8</encoding>
+                </configuration>
+            </plugin>
 
-    <plugins>
-        <plugin>
-            <groupId>org.apache.maven.plugins</groupId>
-            <artifactId>maven-compiler-plugin</artifactId>
-            <version>3.2</version>
-            <configuration>
-                <source>1.8</source>
-                <target>1.8</target>
-                <encoding>UTF-8</encoding>
-            </configuration>
-        </plugin>
-
-        <plugin>
-            <groupId>org.apache.maven.plugins</groupId>
-            <artifactId>maven-release-plugin</artifactId>
-            <version>2.5.1</version>
-        </plugin>
-    </plugins>
-
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-release-plugin</artifactId>
+                <version>2.5.1</version>
+            </plugin>
+        </plugins>
+    </build>
 </project>
