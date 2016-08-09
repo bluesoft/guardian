@@ -19,3 +19,7 @@ Framework de geração de fixtures. Um conjunto de classes que facilitam a gera�
 
 * **guardian-spring**
 Configurações e facilitadores para criar testes de integração em um ambiente spring.
+
+
+# DEPLOY
+Para gerar uma nova versão, basta commitar suas alterações e executar `./bin/deploy.sh`
