@@ -5,32 +5,32 @@ import java.util.List;
 import java.util.Locale;
 import java.util.function.Function;
 
-public class SimpleGuardianFixture extends AbstractGuardianFixture implements Factory {
+public class SimpleGuardianFixture extends AbstractGuardianFixture implements GuardianFixture {
 
-    public SimpleGuardianFixture(FactoryConfig factoryConfig) {
-        super(factoryConfig);
+    public SimpleGuardianFixture(GuardianFixtureConfig guardianFixtureConfig) {
+        super(guardianFixtureConfig);
     }
 
     public SimpleGuardianFixture(Locale locale) {
-        this(new FactoryConfig(locale));
+        this(new GuardianFixtureConfig(locale));
     }
 
     public SimpleGuardianFixture() {
-        this(new FactoryConfig());
+        this(new GuardianFixtureConfig());
     }
 
     @Override
-    public <R> TemplateField<R> field(Function<Factory, R> template) {
-        return new TemplateField<>(this, template);
+    public <R> FixtureField<R> field(Function<GuardianFixture, R> template) {
+        return new FixtureField<>(this, template);
     }
 
     @Override
-    public <T> T create(Template<T> template) {
-        return build(template);
+    public <T> T create(Fixture<T> fixture) {
+        return build(fixture);
     }
 
     @Override
-    public <T> List<T> create(int numberOfObjects, Template<T> template) {
-        return build(numberOfObjects, template);
+    public <T> List<T> create(int numberOfObjects, Fixture<T> fixture) {
+        return build(numberOfObjects, fixture);
     }
 }

@@ -21,5 +21,10 @@
             <groupId>org.assertj</groupId>
             <artifactId>assertj-core</artifactId>
         </dependency>
+
+        <dependency>
+            <groupId>br.com.bluesoft.guardian</groupId>
+            <artifactId>guardian-fixture</artifactId>
+        </dependency>
     </dependencies>
 </project>

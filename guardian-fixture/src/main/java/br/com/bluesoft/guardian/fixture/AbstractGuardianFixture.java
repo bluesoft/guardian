@@ -8,27 +8,27 @@ import java.util.stream.IntStream;
 
 import br.com.bluesoft.guardian.faker.Faker;
 
-public abstract class AbstractGuardianFixture implements Factory {
+public abstract class AbstractGuardianFixture implements GuardianFixture {
 
-    private final FactoryConfig factoryConfig;
+    private final GuardianFixtureConfig guardianFixtureConfig;
 
-    AbstractGuardianFixture(FactoryConfig factoryConfig) {
-        Objects.requireNonNull(factoryConfig);
-        this.factoryConfig = factoryConfig;
+    AbstractGuardianFixture(GuardianFixtureConfig guardianFixtureConfig) {
+        Objects.requireNonNull(guardianFixtureConfig);
+        this.guardianFixtureConfig = guardianFixtureConfig;
     }
 
     @Override
     public Faker faker() {
-        return this.factoryConfig.getFaker();
+        return this.guardianFixtureConfig.getFaker();
     }
 
     @Override
-    public <T> T build(Template<T> template) {
-        return factoryConfig.getModelMapper().map(template, template.getModelClass());
+    public <T> T build(Fixture<T> fixture) {
+        return guardianFixtureConfig.getModelMapper().map(fixture, fixture.getModelClass());
     }
 
     @Override
-    public <T> List<T> build(int numberOfObjects, Template<T> template) {
-        return IntStream.range(0, numberOfObjects).mapToObj(value -> build(template)).collect(Collectors.toList());
+    public <T> List<T> build(int numberOfObjects, Fixture<T> fixture) {
+        return IntStream.range(0, numberOfObjects).mapToObj(value -> build(fixture)).collect(Collectors.toList());
     }
 }

@@ -9,24 +9,24 @@ import java.util.Objects;
 
 import br.com.bluesoft.guardian.faker.Faker;
 
-public class FactoryConfig {
+public class GuardianFixtureConfig {
 
     private final Faker faker;
     private final ModelMapper modelMapper;
 
-    public FactoryConfig(Faker faker, ModelMapper modelMapper) {
+    public GuardianFixtureConfig(Faker faker, ModelMapper modelMapper) {
         Objects.requireNonNull(faker);
         Objects.requireNonNull(modelMapper);
         this.faker = faker;
         this.modelMapper = modelMapper;
     }
 
-    public FactoryConfig(Locale locale) {
+    public GuardianFixtureConfig(Locale locale) {
         this(new Faker(locale), new ModelMapper());
         setupDefaultModelMapper();
     }
 
-    public FactoryConfig() {
+    public GuardianFixtureConfig() {
         this(Locale.getDefault());
     }
 

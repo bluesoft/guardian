@@ -5,13 +5,13 @@ import java.lang.reflect.ParameterizedType;
 import java.util.List;
 import java.util.function.Function;
 
-public abstract class Template<T> {
+public abstract class Fixture<T> {
 
     private final Class<T> modelClass;
-    private final Factory factory;
+    private final GuardianFixture guardianFixture;
 
-    protected Template(Factory factory) {
-        this.factory = factory;
+    protected Fixture(GuardianFixture guardianFixture) {
+        this.guardianFixture = guardianFixture;
         this.modelClass = (Class<T>) ((ParameterizedType) getClass()
                 .getGenericSuperclass()).getActualTypeArguments()[0];
     }
@@ -20,24 +20,24 @@ public abstract class Template<T> {
         return this.modelClass;
     }
 
-    public <R> TemplateField<R> field(Function<Factory, R> template) {
-        return factory.field(template);
+    public <R> FixtureField<R> field(Function<GuardianFixture, R> template) {
+        return guardianFixture.field(template);
     }
 
     public T build() {
-        return factory.build(this);
+        return guardianFixture.build(this);
     }
 
     public List<T> build(int numberOfObjects) {
-        return factory.build(numberOfObjects, this);
+        return guardianFixture.build(numberOfObjects, this);
     }
 
     public T create() {
-        return factory.create(this);
+        return guardianFixture.create(this);
     }
 
     public List<T> create(int numberOfObjects) {
-        return factory.create(numberOfObjects, this);
+        return guardianFixture.create(numberOfObjects, this);
     }
 
 }

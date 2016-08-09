@@ -10,5 +10,10 @@
     <groupId>br.com.bluesoft.guardian</groupId>
     <artifactId>guardian-spring</artifactId>
 
-
+    <dependencies>
+        <dependency>
+            <groupId>br.com.bluesoft.guardian</groupId>
+            <artifactId>guardian-core</artifactId>
+        </dependency>
+    </dependencies>
 </project>

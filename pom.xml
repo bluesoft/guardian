@@ -32,10 +32,28 @@
         <dependencies>
             <dependency>
                 <groupId>br.com.bluesoft.guardian</groupId>
+                <artifactId>guardian-core</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>br.com.bluesoft.guardian</groupId>
                 <artifactId>guardian-faker</artifactId>
                 <version>${project.version}</version>
             </dependency>
-            
+
+            <dependency>
+                <groupId>br.com.bluesoft.guardian</groupId>
+                <artifactId>guardian-fixture</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.hibernate</groupId>
+                <artifactId>hibernate-entitymanager</artifactId>
+                <version>4.3.11.Final</version>
+            </dependency>
+
             <dependency>
                 <groupId>org.reflections</groupId>
                 <artifactId>reflections</artifactId>

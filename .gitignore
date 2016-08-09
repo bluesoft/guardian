@@ -4,3 +4,4 @@ guardian.iml
 target/
 out/
 
+.DS_Store
