@@ -96,3 +96,5 @@ en-US:
         - "(#{PhoneNumber.area_code}) #{PhoneNumber.exchange_code}-#{PhoneNumber.subscriber_number}"
         - "1-#{PhoneNumber.area_code}-#{PhoneNumber.exchange_code}-#{PhoneNumber.subscriber_number}"
         - "#{PhoneNumber.area_code}.#{PhoneNumber.exchange_code}.#{PhoneNumber.subscriber_number}"
+  role:
+    name: ["Pacoteiro", "Encanador", "Acougueiro", "Desenvolvedor", "Pedreiro", "Auxiliar"]

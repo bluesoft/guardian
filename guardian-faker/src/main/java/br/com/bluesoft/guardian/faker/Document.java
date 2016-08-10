@@ -16,4 +16,8 @@ public class Document {
     public String cpf() {
         return faker.numerify("###.###.###-##");
     }
+
+    public String rg() {
+        return faker.numerify("##.###.###-#");
+    }
 }

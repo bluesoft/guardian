@@ -83,3 +83,6 @@ pt-BR:
 
     phone_number:
       formats: ["(##) ####-####", "+55 (##) ####-####", "(##) #####-####"]
+
+    role:
+      name: ["Pacoteiro", "Encanador", "Acougueiro", "Desenvolvedor", "Pedreiro", "Auxiliar"]

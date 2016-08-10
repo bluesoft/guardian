@@ -5,8 +5,7 @@ import org.apache.commons.lang.WordUtils;
 import org.apache.commons.lang.reflect.MethodUtils;
 
 import java.lang.reflect.Proxy;
-import java.util.Locale;
-import java.util.Random;
+import java.util.*;
 
 /**
  * Provides utility methods for generating fake strings, such as names, phone
@@ -32,6 +31,7 @@ public class Faker implements Resolver {
     private final Finance finance;
     private final DateAndTime dateAndTime;
     private final Document document;
+    private final Role role;
 
     public Faker() {
         this(Locale.ENGLISH);
@@ -50,7 +50,7 @@ public class Faker implements Resolver {
         this.fakeValuesService = new FakeValuesService(locale, randomService);
         FakeValuesService defaultEnglishFakeValuesService = new FakeValuesService(locale.ENGLISH, randomService);
         FakeValuesServiceInterface proxiedFakeValueService = createProxiedFakeValuesService(fakeValuesService,
-                defaultEnglishFakeValuesService);
+                        defaultEnglishFakeValuesService);
 
         this.lorem = new Lorem(proxiedFakeValueService, randomService);
         this.name = new Name(this, proxiedFakeValueService);
@@ -67,14 +67,15 @@ public class Faker implements Resolver {
         this.finance = new Finance(proxiedFakeValueService, randomService);
         this.dateAndTime = new DateAndTime(randomService);
         this.document = new Document(this);
+        this.role = new Role(proxiedFakeValueService);
     }
 
     private static FakeValuesServiceInterface createProxiedFakeValuesService(FakeValuesServiceInterface fakeValuesServiceInterface,
-                                                                                      FakeValuesServiceInterface defaultFakeValuesServiceInterface) {
+                    FakeValuesServiceInterface defaultFakeValuesServiceInterface) {
         return (FakeValuesServiceInterface) Proxy.newProxyInstance(Faker.class.getClassLoader(),
-                new Class[]{FakeValuesServiceInterface.class},
-                new DefaultingFakeValuesService(fakeValuesServiceInterface,
-                                                defaultFakeValuesServiceInterface));
+                        new Class[] {FakeValuesServiceInterface.class},
+                        new DefaultingFakeValuesService(fakeValuesServiceInterface,
+                                        defaultFakeValuesServiceInterface));
     }
 
     /**
@@ -117,7 +118,9 @@ public class Faker implements Resolver {
         return name;
     }
 
-    public Number number() { return number; }
+    public Number number() {
+        return number;
+    }
 
     public Internet internet() {
         return internet;
@@ -169,6 +172,10 @@ public class Faker implements Resolver {
 
     public Document document() {
         return document;
+    }
+
+    public Role role() {
+        return role;
     }
 
     /**
