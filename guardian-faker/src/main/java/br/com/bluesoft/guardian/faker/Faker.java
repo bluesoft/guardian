@@ -31,6 +31,7 @@ public class Faker implements Resolver {
     private final Code code;
     private final Finance finance;
     private final DateAndTime dateAndTime;
+    private final Document document;
 
     public Faker() {
         this(Locale.ENGLISH);
@@ -65,6 +66,7 @@ public class Faker implements Resolver {
         this.code = new Code(randomService);
         this.finance = new Finance(proxiedFakeValueService, randomService);
         this.dateAndTime = new DateAndTime(randomService);
+        this.document = new Document(this);
     }
 
     private static FakeValuesServiceInterface createProxiedFakeValuesService(FakeValuesServiceInterface fakeValuesServiceInterface,
@@ -163,6 +165,10 @@ public class Faker implements Resolver {
 
     public DateAndTime date() {
         return dateAndTime;
+    }
+
+    public Document document() {
+        return document;
     }
 
     /**

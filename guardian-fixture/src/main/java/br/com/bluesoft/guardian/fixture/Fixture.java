@@ -5,6 +5,8 @@ import java.lang.reflect.ParameterizedType;
 import java.util.List;
 import java.util.function.Function;
 
+import br.com.bluesoft.guardian.faker.Faker;
+
 public abstract class Fixture<T> {
 
     private final Class<T> modelClass;
@@ -38,6 +40,10 @@ public abstract class Fixture<T> {
 
     public List<T> create(int numberOfObjects) {
         return guardianFixture.create(numberOfObjects, this);
+    }
+
+    public Faker faker() {
+        return guardianFixture.faker();
     }
 
 }
