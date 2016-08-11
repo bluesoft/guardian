@@ -14,5 +14,10 @@ public abstract class AbstractPersistenceGuardianFixture extends AbstractGuardia
         return object;
     }
 
+    @Override
+    public GuardianPersistenceFixture query() {
+        return this;
+    }
+
     abstract <T> T persist(T object);
 }

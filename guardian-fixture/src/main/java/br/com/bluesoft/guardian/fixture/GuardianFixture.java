@@ -10,6 +10,8 @@ public interface GuardianFixture {
 
     Faker faker();
 
+    GuardianPersistenceFixture query();
+
     <R> FixtureField<R> field(Function<GuardianFixture, R> template);
 
     <T> T build(Fixture<T> fixture);

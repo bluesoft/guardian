@@ -1,7 +1,6 @@
 package br.com.bluesoft.guardian.fixture;
 
 
-import java.util.List;
 import java.util.Locale;
 import java.util.function.Function;
 
@@ -24,4 +23,8 @@ public class SimpleGuardianFixture extends AbstractGuardianFixture implements Gu
         return new FixtureField<>(this, template);
     }
 
+    @Override
+    public GuardianPersistenceFixture query() {
+        throw new IncompatibleClassChangeError("Only Persistence Fixtures can query objects");
+    }
 }
