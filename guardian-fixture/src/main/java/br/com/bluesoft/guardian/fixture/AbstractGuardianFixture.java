@@ -31,4 +31,14 @@ public abstract class AbstractGuardianFixture implements GuardianFixture {
     public <T> List<T> build(int numberOfObjects, Fixture<T> fixture) {
         return IntStream.range(0, numberOfObjects).mapToObj(value -> build(fixture)).collect(Collectors.toList());
     }
+
+    @Override
+    public <T> T create(Fixture<T> fixture) {
+        return build(fixture);
+    }
+
+    @Override
+    public <T> List<T> create(int numberOfItems, Fixture<T> fixture) {
+        return IntStream.range(0, numberOfItems).mapToObj(value -> create(fixture)).collect(Collectors.toList());
+    }
 }

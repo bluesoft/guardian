@@ -6,10 +6,8 @@ import org.hibernate.SessionFactory;
 import java.util.List;
 import java.util.Locale;
 import java.util.function.Function;
-import java.util.stream.Collectors;
-import java.util.stream.IntStream;
 
-public class HibernateGuardianFixture extends AbstractGuardianFixture implements GuardianFixture {
+public class HibernateGuardianFixture extends AbstractPersistenceGuardianFixture {
 
     private final SessionFactory sessionFactory;
 
@@ -32,14 +30,15 @@ public class HibernateGuardianFixture extends AbstractGuardianFixture implements
     }
 
     @Override
-    public <T> T create(Fixture<T> fixture) {
-        T object = build(fixture);
+    <T> T persist(T object) {
         sessionFactory.getCurrentSession().persist(object);
         return object;
     }
 
     @Override
-    public <T> List<T> create(int numberOfObjects, Fixture<T> fixture) {
-        return IntStream.range(0, numberOfObjects).mapToObj(value -> create(fixture)).collect(Collectors.toList());
+    public <T> T any(Class<T> clazz) {
+        List<T> items = sessionFactory.getCurrentSession().createQuery("select t from " + clazz.getCanonicalName() + " t ").list();
+        T object = faker().options().option(items);
+        return object;
     }
 }

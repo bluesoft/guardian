@@ -24,13 +24,4 @@ public class SimpleGuardianFixture extends AbstractGuardianFixture implements Gu
         return new FixtureField<>(this, template);
     }
 
-    @Override
-    public <T> T create(Fixture<T> fixture) {
-        return build(fixture);
-    }
-
-    @Override
-    public <T> List<T> create(int numberOfObjects, Fixture<T> fixture) {
-        return build(numberOfObjects, fixture);
-    }
 }

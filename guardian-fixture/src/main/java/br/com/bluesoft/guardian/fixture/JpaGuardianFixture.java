@@ -4,12 +4,10 @@ package br.com.bluesoft.guardian.fixture;
 import java.util.List;
 import java.util.Locale;
 import java.util.function.Function;
-import java.util.stream.Collectors;
-import java.util.stream.IntStream;
 
 import javax.persistence.EntityManager;
 
-public class JpaGuardianFixture extends AbstractGuardianFixture implements GuardianFixture {
+public class JpaGuardianFixture extends AbstractPersistenceGuardianFixture {
 
     private final EntityManager em;
 
@@ -32,14 +30,15 @@ public class JpaGuardianFixture extends AbstractGuardianFixture implements Guard
     }
 
     @Override
-    public <T> T create(Fixture<T> fixture) {
-        T object = build(fixture);
+    <T> T persist(T object) {
         em.persist(object);
         return object;
     }
 
     @Override
-    public <T> List<T> create(int numberOfItems, Fixture<T> fixture) {
-        return IntStream.range(0, numberOfItems).mapToObj(value -> create(fixture)).collect(Collectors.toList());
+    public <T> T any(Class<T> clazz) {
+        List<T> items = em.createQuery("select t from " + clazz.getCanonicalName() + " t ").getResultList();
+        T object = faker().options().option(items);
+        return object;
     }
 }
