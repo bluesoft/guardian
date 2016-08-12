@@ -1,8 +1,15 @@
 package br.com.bluesoft.guardian.fixture;
 
 
+import org.modelmapper.AbstractConverter;
+import org.modelmapper.Converter;
 import org.modelmapper.ModelMapper;
+import org.modelmapper.PropertyMap;
+import org.modelmapper.TypeToken;
 import org.modelmapper.config.Configuration;
+import org.modelmapper.convention.MatchingStrategies;
+import org.modelmapper.internal.asm.Type;
+import org.modelmapper.spi.MappingContext;
 
 import java.util.Locale;
 import java.util.Objects;
@@ -39,8 +46,16 @@ public class GuardianFixtureConfig {
     }
 
     private void setupDefaultModelMapper() {
+        modelMapper.addConverter(new FixtureFieldMapper<Long>());
         modelMapper.getConfiguration()
             .setFieldMatchingEnabled(true)
             .setFieldAccessLevel(Configuration.AccessLevel.PRIVATE);
+    }
+
+    public class FixtureFieldMapper<T> extends AbstractConverter<FixtureField<T>, T> {
+        @Override
+        protected T convert(FixtureField<T> tFixtureField) {
+            return tFixtureField.getValue();
+        }
     }
 }

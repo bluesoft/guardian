@@ -13,7 +13,7 @@ public class AgencyFixture extends Fixture<Agency> {
 
     private final FixtureField<String> number;
     private final FixtureField<String> digit;
-    private final FixtureField<Bank>   bank;
+    private final FixtureField<Bank> bank;
 
     public AgencyFixture(GuardianFixture fixture) {
         super(fixture);

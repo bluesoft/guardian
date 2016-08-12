@@ -9,10 +9,12 @@ import java.util.Set;
 import br.com.bluesoft.guardian.fixture.fixtures.AccountFixture;
 import br.com.bluesoft.guardian.fixture.fixtures.AgencyFixture;
 import br.com.bluesoft.guardian.fixture.fixtures.BankFixture;
+import br.com.bluesoft.guardian.fixture.fixtures.EmployeeFixture;
 import br.com.bluesoft.guardian.fixture.fixtures.PersonFixture;
 import br.com.bluesoft.guardian.fixture.models.Account;
 import br.com.bluesoft.guardian.fixture.models.Agency;
 import br.com.bluesoft.guardian.fixture.models.Bank;
+import br.com.bluesoft.guardian.fixture.models.Employee;
 import br.com.bluesoft.guardian.fixture.models.Person;
 
 import static org.junit.Assert.assertEquals;
@@ -42,6 +44,15 @@ public class GuardianFixtureTest {
             assertNotNull(person.getDocument());
             assertTrue(person.getDocument().length() == "##.###.###/####-##".length());
         }
+    }
+
+    @Test
+    public void testInheritClassModelFixture() throws Exception {
+        Employee employee = new EmployeeFixture(fixture).build();
+        assertNotNull(employee.getSalary());
+        assertNotNull(employee.getName());
+        assertNotNull(employee.getAge());
+        assertNotNull(employee.getDocument());
     }
 
     @Test
