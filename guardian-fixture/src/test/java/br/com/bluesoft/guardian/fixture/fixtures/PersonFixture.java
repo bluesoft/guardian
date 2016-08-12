@@ -10,6 +10,11 @@ public class PersonFixture extends AbstractPersonFixture<Person> {
         super(fixture);
     }
 
+    @Override
+    public Person convert() {
+        return new Person(name.getValue(), age.getValue(), document.getValue());
+    }
+
     public PersonFixture juridic() {
         this.document.setTemplate((f) -> f.faker().numerify("##.###.###/####-##"));
         return this;

@@ -15,7 +15,9 @@ public class EmployeeFixture extends AbstractPersonFixture<Employee> {
         super(guardianFixture);
     }
 
-    public BigDecimal getSalary() {
-        return salary.getValue();
+    @Override
+    public Employee convert() {
+        return new Employee(salary.getValue(), name.getValue(), age.getValue(), document.getValue());
     }
+
 }

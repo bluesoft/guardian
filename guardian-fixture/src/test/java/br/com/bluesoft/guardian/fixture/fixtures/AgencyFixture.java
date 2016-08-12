@@ -42,15 +42,8 @@ public class AgencyFixture extends Fixture<Agency> {
         return this;
     }
 
-    public String getNumber() {
-        return number.getValue();
-    }
-
-    public String getDigit() {
-        return digit.getValue();
-    }
-
-    public Bank getBank() {
-        return bank.getValue();
+    @Override
+    public Agency convert() {
+        return new Agency(number.getValue(), digit.getValue(), bank.getValue());
     }
 }

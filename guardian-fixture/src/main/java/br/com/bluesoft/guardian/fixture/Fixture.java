@@ -46,4 +46,6 @@ public abstract class Fixture<T> {
         return guardianFixture.faker();
     }
 
+    public abstract T convert();
+
 }

@@ -17,11 +17,8 @@ public class BankFixture extends Fixture<Bank> {
         name   = field( (f) -> f.faker().company().name()              );
     }
 
-    public Long getNumber() {
-        return number.getValue();
-    }
-
-    public String getName() {
-        return name.getValue();
+    @Override
+    public Bank convert() {
+        return new Bank(number.getValue(), name.getValue());
     }
 }

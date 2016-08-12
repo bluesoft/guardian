@@ -24,7 +24,7 @@ public abstract class AbstractGuardianFixture implements GuardianFixture {
 
     @Override
     public <T> T build(Fixture<T> fixture) {
-        return guardianFixtureConfig.getModelMapper().map(fixture, fixture.getModelClass());
+        return fixture.convert();
     }
 
     @Override

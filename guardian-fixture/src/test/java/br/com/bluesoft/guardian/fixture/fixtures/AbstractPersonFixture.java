@@ -32,16 +32,4 @@ public abstract class AbstractPersonFixture<T extends Person> extends Fixture<T>
         this.document.setValue(document);
         return this;
     }
-
-    public String getName() {
-        return name.getValue();
-    }
-
-    public Integer getAge() {
-        return age.getValue();
-    }
-
-    public String getDocument() {
-        return document.getValue();
-    }
 }

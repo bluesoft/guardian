@@ -23,6 +23,11 @@ public class AccountFixture extends Fixture<Account> {
         agency = field( (f) -> f.build(new AgencyFixture(f)) );
     }
 
+    @Override
+    public Account convert() {
+        return new Account(number.getValue(), digit.getValue(), owner.getValue(), agency.getValue());
+    }
+
     public AccountFixture number(String number) {
         this.number.setValue(number);
         return this;
@@ -41,21 +46,5 @@ public class AccountFixture extends Fixture<Account> {
     public AccountFixture agency(Agency agency) {
         this.agency.setValue(agency);
         return this;
-    }
-
-    public String getNumber() {
-        return number.getValue();
-    }
-
-    public String getDigit() {
-        return digit.getValue();
-    }
-
-    public Person getOwner() {
-        return owner.getValue();
-    }
-
-    public Agency getAgency() {
-        return agency.getValue();
     }
 }
