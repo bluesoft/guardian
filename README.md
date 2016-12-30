@@ -1,4 +1,5 @@
-# GUARDIAN
+# GUARDIAN [![Build Status](https://travis-ci.org/bluesoft/guardian.svg?branch=master)](https://travis-ci.org/bluesoft/guardian)
+
 
 Projeto para centralizar e padronizar ambientes e frameworks de testes entre os projetos java da Bluesoft.
 
