@@ -2,5 +2,5 @@
 
 mvn clean package
 mvn release:clean
-mvn -B release:prepare
-mvn release:perform
+mvn -DpushChanges=false -B release:prepare
+mvn -DpushChanges=false release:perform
