@@ -1,4 +1,4 @@
-# GUARDIAN [![Build Status](https://travis-ci.org/bluesoft/guardian.svg?branch=master)](https://travis-ci.org/bluesoft/guardian)
+# GUARDIAN [![Build Status](https://travis-ci.org/bluesoft/guardian.svg?branch=master)](https://travis-ci.org/bluesoft/guardian) [![Coverage Status](https://coveralls.io/repos/github/bluesoft/guardian/badge.svg?branch=master)](https://coveralls.io/github/bluesoft/guardian?branch=master)
 
 
 Projeto para centralizar e padronizar ambientes e frameworks de testes entre os projetos java da Bluesoft.
