@@ -43,7 +43,7 @@
 
     <scm>
         <connection>scm:git:git://github.com/bluesoft/guardian.git</connection>
-        <developerConnection>scm:git:ssh://github.com:bluesoft/guardian.git</developerConnection>
+        <developerConnection>scm:git:ssh://github.com/bluesoft/guardian.git</developerConnection>
         <url>http://github.com/bluesoft/guardian/tree/master</url>
     </scm>
 
