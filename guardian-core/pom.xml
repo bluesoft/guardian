@@ -2,16 +2,14 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <parent>
         <artifactId>guardian</artifactId>
-        <groupId>br.com.bluesoft.guardian</groupId>
+        <groupId>br.com.bluesoft</groupId>
         <version>1.9-SNAPSHOT</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>br.com.bluesoft.guardian</groupId>
     <artifactId>guardian-core</artifactId>
     
     <dependencies>
-
         <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
@@ -28,7 +26,7 @@
         </dependency>
 
         <dependency>
-            <groupId>br.com.bluesoft.guardian</groupId>
+            <groupId>br.com.bluesoft</groupId>
             <artifactId>guardian-fixture</artifactId>
         </dependency>
     </dependencies>

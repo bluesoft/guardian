@@ -6,7 +6,7 @@
     <description>An integration-test suite.</description>
     <url>https://github.com/bluesoft/guardian</url>
 
-    <groupId>br.com.bluesoft.guardian</groupId>
+    <groupId>br.com.bluesoft</groupId>
     <artifactId>guardian</artifactId>
     <version>1.9-SNAPSHOT</version>
     <packaging>pom</packaging>
@@ -56,19 +56,19 @@
     <dependencyManagement>
         <dependencies>
             <dependency>
-                <groupId>br.com.bluesoft.guardian</groupId>
+                <groupId>br.com.bluesoft</groupId>
                 <artifactId>guardian-core</artifactId>
                 <version>${project.version}</version>
             </dependency>
 
             <dependency>
-                <groupId>br.com.bluesoft.guardian</groupId>
+                <groupId>br.com.bluesoft</groupId>
                 <artifactId>guardian-faker</artifactId>
                 <version>${project.version}</version>
             </dependency>
 
             <dependency>
-                <groupId>br.com.bluesoft.guardian</groupId>
+                <groupId>br.com.bluesoft</groupId>
                 <artifactId>guardian-fixture</artifactId>
                 <version>${project.version}</version>
             </dependency>
