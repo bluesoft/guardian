@@ -7,7 +7,7 @@
     <url>https://github.com/bluesoft/guardian</url>
 
     <groupId>br.com.bluesoft.guardian</groupId>
-    <artifactId>guardian</artifactId>
+    <artifactId>guardian-parent</artifactId>
     <version>1.9-SNAPSHOT</version>
     <packaging>pom</packaging>
 
