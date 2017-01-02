@@ -7,6 +7,7 @@ import br.com.bluesoft.guardian.fixture.Fixture;
 import br.com.bluesoft.guardian.fixture.FixtureField;
 
 public class BankFixture extends Fixture<Bank> {
+
     private FixtureField<Long> number;
     private FixtureField<String> name;
 
@@ -14,6 +15,11 @@ public class BankFixture extends Fixture<Bank> {
         super(guardianFixture);
         number = field((f) -> f.faker().number().randomNumber(3,true));
         name   = field((f) -> f.faker().company().name());
+    }
+
+    @Override
+    public Bank convert() {
+        return new Bank(number.getValue(), name.getValue());
     }
 
     public Long getNumber() {
