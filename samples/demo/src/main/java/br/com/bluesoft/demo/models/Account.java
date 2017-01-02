@@ -7,13 +7,17 @@ import javax.persistence.ManyToOne;
 public class Account extends BaseModel {
 
     private String number;
+
     private String digit;
+
     @ManyToOne
     private Person owner;
+
     @ManyToOne
     private Agency agency;
 
-    protected Account(){}
+    protected Account() {
+    }
 
     public Account(String number, String digit, Person owner, Agency agency) {
         this.number = number;

@@ -19,6 +19,11 @@ public class PersonFixture extends Fixture<Person> {
         document = field( (f) -> f.faker().numerify("###.###.###-##"));
     }
 
+    @Override
+    public Person convert() {
+        return new Person(name.getValue(), age.getValue(), document.getValue());
+    }
+
     public PersonFixture pessoaFisica() {
         this.document.setTemplate((f) -> f.faker().numerify("##.###.###/####-##"));
         return this;

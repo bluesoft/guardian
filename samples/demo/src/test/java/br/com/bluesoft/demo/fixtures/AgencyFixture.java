@@ -15,12 +15,16 @@ public class AgencyFixture extends Fixture<Agency> {
     private FixtureField<String> digit;
     private FixtureField<Bank> bank;
 
-
     public AgencyFixture(GuardianFixture guardianFixture) {
         super(guardianFixture);
         number = field((f) -> f.faker().numerify("#####"));
         digit  = field((f) -> f.faker().numerify("#"));
         bank   = field((f) -> f.create(new BankFixture(f)));
+    }
+
+    @Override
+    public Agency convert() {
+        return new Agency(number.getValue(), digit.getValue(), bank.getValue());
     }
 
     public AgencyFixture number(String number) {
